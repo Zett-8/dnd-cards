@@ -1,9 +1,16 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
 import VerticalList from '../components/verticalList'
 
+const getItem = n => Array.from({ length: n }).map((v, i) => ({ id: i, content: `content-${i}` }))
+
 const VerticalListPageContainer = () => {
-  return <VerticalList />
+  const [item, setItem] = useState([])
+
+  useEffect(() => {
+    setItem(getItem(10))
+  }, [])
+
+  return <VerticalList item={item} setItem={setItem} droppableId={'droppable'} />
 }
 
 export default VerticalListPageContainer

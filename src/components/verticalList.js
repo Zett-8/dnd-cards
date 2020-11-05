@@ -4,15 +4,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import ItemCard from './itemCard'
 
-const getItem = n => Array.from({ length: n }).map((v, i) => ({ id: i, content: `content-${i}` }))
-
-const verticalList = () => {
-  const [item, setItem] = useState([])
-
-  useEffect(() => {
-    setItem(getItem(10))
-  }, [])
-
+const verticalList = ({ item, setItem, droppableId }) => {
   const onDragEnd = result => {
     if (!result.destination) return null
     setItem(reorder(result.source.index, result.destination.index))
@@ -27,7 +19,7 @@ const verticalList = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
+      <Droppable droppableId={droppableId}>
         {provided => (
           <CardList {...provided.droppableProps} ref={provided.innerRef}>
             {item.map((v, i) => (

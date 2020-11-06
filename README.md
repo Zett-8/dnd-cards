@@ -1,5 +1,7 @@
-```terminal
-cp pre-push ./.git/hooks/
+!(demo)[https://github.com/Zett-8/images/blob/master/dnd.gif?raw=true]
 
-chmod a+x ./.git/hooks/pre-push
-```
+
+## Dependencies
+
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+- [React boilerplate](https://github.com/Zett-8/react-boilerplate)

@@ -4,40 +4,37 @@ import { DragDropContext } from 'react-beautiful-dnd'
 
 import VerticalList from '../components/verticalList'
 
-const getItem = (n, x = 0) => Array.from({ length: n }).map((v, i) => ({ id: i + x, content: `content-${i + x}` }))
+const getItems = (n, x = 0) => Array.from({ length: n }).map((v, i) => ({ id: i + x, content: `content-${i + x}` }))
 
 const HorizontalListPageContainer = () => {
-  const [item1, setItem1] = useState([])
-  const [item2, setItem2] = useState([])
+  const [lists, setLists] = useState([])
 
   useEffect(() => {
-    setItem1(getItem(10))
-    setItem2(getItem(10, 10))
+    setLists([getItems(10), getItems(10, 10)])
   }, [])
 
   const onDragEnd = result => {
-    console.log(result)
     if (!result.destination) return null
-    const [i1, i2] = reorder(result.source, result.destination)
-    setItem1(i1)
-    setItem2(i2)
+    setLists(reorder(result.source, result.destination))
   }
 
   const reorder = (source, destination) => {
-    const o = {}
-    o.d1 = item1.slice(0)
-    o.d2 = item2.slice(0)
+    const n = lists.slice(0)
+    const s_i = Number(source.droppableId)
+    const d_i = Number(destination.droppableId)
 
-    const [x] = o[source.droppableId].splice(source.index, 1)
-    o[destination.droppableId].splice(destination.index, 0, x)
-    return [o.d1, o.d2]
+    const [x] = n[s_i].splice(source.index, 1)
+    n[d_i].splice(destination.index, 0, x)
+
+    return n
   }
 
   return (
     <Wrapper>
       <DragDropContext onDragEnd={onDragEnd}>
-        <VerticalList onDragEnd={onDragEnd} item={item1} droppableId={'d1'} />
-        <VerticalList onDragEnd={onDragEnd} item={item2} droppableId={'d2'} />
+        {lists.map((v, i) => (
+          <VerticalList key={i} onDragEnd={onDragEnd} list={v} droppableId={String(i)} />
+        ))}
       </DragDropContext>
     </Wrapper>
   )

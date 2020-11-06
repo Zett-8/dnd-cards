@@ -11,7 +11,7 @@ const verticalList = ({ list, droppableId }) => {
         <CardList {...provided.droppableProps} ref={provided.innerRef}>
           {list.map((v, i) => (
             <Draggable key={v.id} draggableId={String(v.id)} index={i}>
-              {(provided, snapshot) => <ItemCard provided={provided}>{v.content}</ItemCard>}
+              {provided2 => <ItemCard provided={provided2}>{v.content}</ItemCard>}
             </Draggable>
           ))}
           {provided.placeholder}

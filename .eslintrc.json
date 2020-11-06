@@ -36,7 +36,7 @@
                 "SwitchCase": 1
             }
         ],
-        "no-console": "error",
+        "no-console": "warn",
         "object-curly-newline": "off",
         "object-shorthand": "off",
         "react/destructuring-assignment": "off",
@@ -45,6 +45,8 @@
         "comma-dangle": "off",
         "react/require-default-props": "off",
         "react/jsx-filename-extension": "off",
+        "react/prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
         "import/no-extraneous-dependencies": "off",
         "react/prefer-stateless-function": "off",
         "prefer-template": "off",

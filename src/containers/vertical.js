@@ -25,7 +25,7 @@ const VerticalListPageContainer = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <VerticalList list={list} droppableId={'droppable'} />
+      <VerticalList list={list} droppableId="droppable" />
     </DragDropContext>
   )
 }

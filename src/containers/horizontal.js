@@ -20,11 +20,11 @@ const HorizontalListPageContainer = () => {
 
   const reorder = (source, destination) => {
     const n = lists.slice(0)
-    const s_i = Number(source.droppableId)
-    const d_i = Number(destination.droppableId)
+    const si = Number(source.droppableId)
+    const di = Number(destination.droppableId)
 
-    const [x] = n[s_i].splice(source.index, 1)
-    n[d_i].splice(destination.index, 0, x)
+    const [x] = n[si].splice(source.index, 1)
+    n[di].splice(destination.index, 0, x)
 
     return n
   }
@@ -33,6 +33,7 @@ const HorizontalListPageContainer = () => {
     <Wrapper>
       <DragDropContext onDragEnd={onDragEnd}>
         {lists.map((v, i) => (
+          // eslint-disable-next-line
           <VerticalList key={i} onDragEnd={onDragEnd} list={v} droppableId={String(i)} />
         ))}
       </DragDropContext>

@@ -5,14 +5,14 @@ class ErrorBoundary extends React.Component {
     super(props)
     this.state = {
       error: null,
-      errorInfo: null
+      errorInfo: null,
     }
   }
 
   componentDidCatch(error, errorInfo) {
     this.setState({
       error,
-      errorInfo
+      errorInfo,
     })
   }
 
@@ -21,7 +21,8 @@ class ErrorBoundary extends React.Component {
       return (
         <div>
           <p>Error occurred</p>
-          {this.state.error && this.state.error.toString()} <br />
+          {this.state.error && this.state.error.toString()}
+          <br />
           {this.state.errorInfo.componentStack}
         </div>
       )

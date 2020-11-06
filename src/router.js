@@ -11,14 +11,12 @@ import HorizontalListContainer from './containers/horizontal'
 export default () => (
   <ErrorBoundary>
     <BrowserRouter>
-      <React.Fragment>
-        <Switch>
-          <Route exact path="/" component={LandingContainer} />
-          <Route exact path="/vertical" component={VerticalListContainer} />
-          <Route exact path="/horizontal" component={HorizontalListContainer} />
-          <Route component={Page404} />
-        </Switch>
-      </React.Fragment>
+      <Switch>
+        <Route exact path="/" component={LandingContainer} />
+        <Route exact path="/vertical" component={VerticalListContainer} />
+        <Route exact path="/horizontal" component={HorizontalListContainer} />
+        <Route component={Page404} />
+      </Switch>
     </BrowserRouter>
   </ErrorBoundary>
 )

@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ItemCard = props => {
-  const provided = props.provided
+const ItemCard = ({ provided, children }) => {
   return (
     <Card {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-      {props.children}
+      {children}
     </Card>
   )
 }

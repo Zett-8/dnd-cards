@@ -1,4 +1,4 @@
-!(demo)[https://github.com/Zett-8/images/blob/master/dnd.gif?raw=true]
+![demo](https://github.com/Zett-8/images/blob/master/dnd.gif)
 
 
 ## Dependencies

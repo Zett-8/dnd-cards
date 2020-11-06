@@ -7,6 +7,7 @@ class LandingPageContainer extends React.Component {
     return (
       <div>
         <Link to="vertical">simple vertical list</Link>
+        <Link to="horizontal">horizontal dnd with multiple vertical list</Link>
       </div>
     )
   }
